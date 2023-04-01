@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on darwin)" generated="20230401 12:24:35.648" rpa="false" schemaversion="3">
+<suite id="s1" name="Api" source="/Users/spurge/Documents/Python/Robot/robot_1/api.robot">
+<test id="s1-t1" name="GET request and verify the responce" line="16">
+<kw name="Run Keyword" library="BuiltIn">
+<arg>Create Session</arg>
+<arg>mysession</arg>
+<arg>${mock_API}</arg>
+<arg>verify=True</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="Create Session">
+<arg>mysession</arg>
+<arg>${mock_API}</arg>
+<arg>verify=True</arg>
+<msg timestamp="20230401 12:24:35.733" level="FAIL">No keyword with name 'Create Session' found.</msg>
+<status status="FAIL" starttime="20230401 12:24:35.733" endtime="20230401 12:24:35.733"/>
+</kw>
+<status status="FAIL" starttime="20230401 12:24:35.731" endtime="20230401 12:24:35.733"/>
+</kw>
+<kw name="GET On Session">
+<var>${response}</var>
+<arg>mysession</arg>
+<arg>?</arg>
+<status status="NOT RUN" starttime="20230401 12:24:35.734" endtime="20230401 12:24:35.734"/>
+</kw>
+<kw name="Run Keyword" library="BuiltIn">
+<arg>Status Should Be</arg>
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="NOT RUN" starttime="20230401 12:24:35.734" endtime="20230401 12:24:35.734"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230401 12:24:35.734" endtime="20230401 12:24:35.734"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${data}</var>
+<arg>${Json["data"]["nodes"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230401 12:24:35.734" endtime="20230401 12:24:35.735"/>
+</kw>
+<kw name="Verify id">
+<arg>${data}</arg>
+<status status="NOT RUN" starttime="20230401 12:24:35.735" endtime="20230401 12:24:35.735"/>
+</kw>
+<doc>GET session and verify status_code</doc>
+<status status="FAIL" starttime="20230401 12:24:35.731" endtime="20230401 12:24:35.735">No keyword with name 'Create Session' found.</status>
+</test>
+<status status="FAIL" starttime="20230401 12:24:35.649" endtime="20230401 12:24:35.735"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Api">Api</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230401 12:24:35.727" level="ERROR">Error in file '/Users/spurge/Documents/Python/Robot/robot_1/api.robot' on line 3: Importing library 'RequestsLibrary' failed: ModuleNotFoundError: No module named 'RequestsLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Library/Frameworks/Python.framework/Versions/3.11/bin
+  /Library/Frameworks/Python.framework/Versions/3.11/lib/python311.zip
+  /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11
+  /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload
+  /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages</msg>
+<msg timestamp="20230401 12:24:35.729" level="ERROR">Error in file '/Users/spurge/Documents/Python/Robot/robot_1/api.robot' on line 7: Importing library 'JSONLibrary' failed: ModuleNotFoundError: No module named 'JSONLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Library/Frameworks/Python.framework/Versions/3.11/bin
+  /Library/Frameworks/Python.framework/Versions/3.11/lib/python311.zip
+  /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11
+  /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload
+  /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages</msg>
+</errors>
+</robot>
